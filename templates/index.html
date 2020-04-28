@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+ <head>
+
+	 <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+
+
+
+</head>
+<body>
+<a href="/" >Home</a>
+<a href="/about" >About</a>
+<form action="/adduser" method="POST">
+	<h1>Feel this</h1>
+	Username
+	<input type=text name="username" required class=form-control></br>
+	</br>
+	Password
+	<input type=password name=password
+	       ></br>
+	</br>
+	<input type=submit value="Submit">
+</form>
+
+<h4>list of users</h4>
+<table>
+<thead>
+<tr> 
+   <th>uername</th>
+   <th>password</th>
+</tr>
+</thead>
+<tbody>
+
+  {% for user in users %}
+  <tr>
+     <td>
+	{{user.username}}
+    </td>
+
+    <td>
+	{{user.password}}
+    </td>
+  </tr>
+  {%endfor%}
+</body>
+</html>
